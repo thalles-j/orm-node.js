@@ -1,11 +1,15 @@
-class PessoaController {
-    static async getAll(next,req,res){
-        try{
+const database = require('../models');
 
-        }catch(erro){
-            //erro
-        }
+class PessoaController {
+  static async getAll(req, res, next) {
+    try {
+      const listaPessoas = await database.Pessoa.findAll();
+      return res.status(200).json(listaPessoas);
+    } catch (erro) {
+      // repassa para o middleware de erro
+      next(erro);
     }
+  }
 }
 
 module.exports = PessoaController;
