@@ -15,18 +15,18 @@ module.exports = {
       descricao: {
         type: Sequelize.STRING
       },
+      data_inicio: {
+        type: Sequelize.DATEONLY
+      },
       docente_id: {
         allowNull: false,
-        typle: Sequelize.INTEGER,
-        references: { model: 'pessoas', key: 'id' },
+        type: Sequelize.INTEGER,
+        references: { model: 'pessoas', key: 'id' }
       },
       categoria_id: {
         allowNull: false,
-        typle: Sequelize.INTEGER,
-        references: { model: 'categorias', key: 'id' },
-      },
-      data_inicio: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.INTEGER,
+        references: { model: 'categorias', key: 'id' }
       },
       createdAt: {
         allowNull: false,

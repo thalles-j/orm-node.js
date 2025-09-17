@@ -1,6 +1,6 @@
 // src/routes/pessoaRoute.js
 const { Router } = require('express');
-const PessoaController = require('../controllers/pessoaController');
+const PessoaController = require('../controllers/PessoaController');
 
 const pessoaController = new PessoaController();
 
