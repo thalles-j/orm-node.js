@@ -27,6 +27,17 @@ class Controller {
         }
     }
 
+    async create(req, res) {
+        const dataCreate = req.body;
+        try{
+            const newDataCreate = await this.entidadeService.createRegister(dataCreate);
+            return res.status(201).json(newDataCreate);
+        }catch(erro){
+            console.error(erro);
+            return res.status(500).json({ mensagem: "Erro ao criar registro", erro: erro.message });
+        }
+    }
+
     async update(req, res) {
         const { id } = req.params;
         const dataUpdated = req.body;
@@ -40,6 +51,19 @@ class Controller {
             console.error(erro);
             return res.status(500).json({ mensagem: "Erro ao atualizar registro", erro: erro.message });
         }
+    }
+    async delete(req, res) {
+        const { id } = req.params;
+        try {
+            const deleted = await this.entidadeService.deleteRegister(Number(id));
+            if (!deleted) {
+                return res.status(404).json({ mensagem: `Registro ${id} não encontrado` });
+                }
+            return res.status(200).json({ mensagem: `Registro ${id} deletado com sucesso!` });
+        } catch (erro) {
+            console.error(erro);
+                return res.status(500).json({ mensagem: "Erro ao deletar registro", erro: erro.message });
+            }
     }
 };
 module.exports = Controller;
