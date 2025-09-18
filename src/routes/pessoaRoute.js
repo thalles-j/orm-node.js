@@ -1,8 +1,10 @@
 // src/routes/pessoaRoute.js
 const { Router } = require('express');
 const PessoaController = require('../controllers/PessoaController');
+const MatriculaController = require('../controllers/MatriculaController');
 
 const pessoaController = new PessoaController();
+const matriculaController = new MatriculaController();
 
 const router = Router();
 
@@ -12,5 +14,9 @@ router.post('/pessoas', (req, res) => pessoaController.create(req, res));
 router.put('/pessoas/:id', (req, res) => pessoaController.update(req, res));
 router.delete('/pessoas/:id', (req, res) => pessoaController.delete(req, res));
 
+// Rotas para matrículas
 
-module.exports = router; // 👈 exporta o router
+router.post('/pessoas/:estudanteId/matriculas', (req, res) => matriculaController.create(req, res));
+
+
+module.exports = router; 

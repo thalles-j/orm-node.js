@@ -13,4 +13,4 @@ router.put('/curso/:id', (req, res) => cursoController.update(req, res));
 router.delete('/curso/:id', (req, res) => cursoController.delete(req, res));
 
 
-module.exports = router; // 👈 exporta o router
+module.exports = router;

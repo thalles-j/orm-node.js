@@ -13,4 +13,4 @@ router.put('/categoria/:id', (req, res) => categoriaController.update(req, res))
 router.delete('/categoria/:id', (req, res) => categoriaController.delete(req, res));
 
 
-module.exports = router; // 👈 exporta o router
+module.exports = router; 
