@@ -16,7 +16,9 @@ router.delete('/pessoas/:id', (req, res) => pessoaController.delete(req, res));
 
 // Rotas para matrículas
 
+router.get('/pessoas/:estudanteId/matriculas', (req, res) => pessoaController.getMatriculas(req, res));
 router.post('/pessoas/:estudanteId/matriculas', (req, res) => matriculaController.create(req, res));
+
 
 
 module.exports = router; 
